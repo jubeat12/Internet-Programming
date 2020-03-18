@@ -1,0 +1,96 @@
+<!--
+Taewoo Kang
+5328817
+kangx766
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 1</title>
+	<link type = "text/css" rel = "stylesheet" href = "style.css"/>
+	<script src= "project.js"></script>
+</head>
+<body>
+	<nav>
+		<a href = "calendar.html">My Calendar</a> |
+		<a href = "form.html">Form Input</a> |
+		<a href = "myWidgets.html">My Widgets</a>
+	</nav>
+	<div id="google_translate_element"></div>
+	<script>
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<iframe style="margin-top: 25px;" width="500" height="350" src="https://www.youtube.com/embed/videoseries?list=PLYfY5g8TOjGCrBYxafCsu8CH97EktQlXq" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<a class="twitter-timeline"
+	  href="https://twitter.com/listenfirst"
+	  data-width = "300"
+	  data-height = "350"
+	  data-chrome="nofooter noborders">
+	Tweets by @listenfirst
+	</a>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<div style = "border: 3px solid blue; width: 200px; margin-top: 10px; background-color: #00bcd4;">
+		<h4 style = "line-height: 0px;">TicTacToe</h4>
+		<form>
+			<p>
+				Enter Cell Name: 
+				<input id = "cellname" name = "cellname" type = "text" required>
+			</p>
+			<p>
+				Select Cell Color: 
+				<select id = "cellcolor" name = "cellcolor">
+					<option>Red</option>
+					<option>Blue</option>
+				</select>
+			</p>
+			<button onclick = "tictactoegame();" type = "button">Enter</button>
+			<button onclick = "resetgame();" type = "button">Reset</button>
+		</form>
+		<table class = "tictactoetable">
+			<tbody class = "tictactoetable">
+				<tr class = "tictactoetable">
+					<td id = "one" class = "tictactoetable" style="background-color: #a8ffa8;">
+						one
+					</td>
+					<td id = "two" class = "tictactoetable" style="background-color: #a8ffa8;"> 
+						two
+					</td>
+					<td id = "three" class = "tictactoetable" style="background-color: #a8ffa8;">
+						three
+					</td>
+				</tr>
+				
+				<tr class = "tictactoetable">
+					<td id = "four" class = "tictactoetable" style="background-color: #a8ffa8;">
+						four
+					</td>
+					<td id = "five" class = "tictactoetable" style="background-color: #a8ffa8;"> 
+						five
+					</td>
+					<td id = "six" class = "tictactoetable" style="background-color: #a8ffa8;">
+						six
+					</td>
+				</tr>
+				
+				<tr class = "tictactoetable">
+					<td id = "seven" class = "tictactoetable" style="background-color: #a8ffa8;">
+						seven
+					</td>
+					<td id = "eight" class = "tictactoetable" style="background-color: #a8ffa8;"> 
+						eight
+					</td>
+					<td id = "nine" class = "tictactoetable" style="background-color: #a8ffa8;">
+						nine
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
