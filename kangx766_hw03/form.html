@@ -1,0 +1,100 @@
+<!--
+Taewoo Kang
+5328817
+kangx766
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 1</title>
+	<link type = "text/css" rel = "stylesheet" href = "style.css"/>
+	<style>
+		td, th{
+			text-align: left;
+			height: auto;
+			width: 100px;
+		}
+		table{
+			width: 275px;
+		}
+	</style>
+	<script src= "project.js"></script>
+</head>
+<body>
+	<nav>
+		<a href = "calendar.html">My Calendar</a> 
+		<a href = "form.html">Form Input</a> 
+		<a href = "myWidgets.html">My Widgets</a>
+		
+	</nav>
+		<div id="google_translate_element"></div>
+	<script>
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<form method="get" action="https://www-users.cs.umn.edu/~shaw0162/index.php">
+		<table>
+			<tbody>
+				<tr>
+					<th>Event Name</th>
+					<td>
+						<input id = "eventname" name = "eventname" type = "text" required>
+					</td>
+				</tr>
+				<tr>
+					<th>Start Time</th>
+					<td>
+						<input name = "starttime" type = "time" required>
+					</td>
+				</tr>
+				<tr>
+					<th>End Time</th>
+					<td>
+						<input name = "endtime" type = "time" required>
+					</td>
+				</tr>
+				<tr>
+					<th>Location</th>
+					<td>
+						<input id = "location" name = "location" type = "text" required>
+					</td>
+				</tr>
+				<tr>
+					<th>Day of Week</th>
+					<td>
+						<select name = "day">
+							<option>Mon</option>
+							<option>Tue</option>
+							<option>Wed</option>
+							<option>Thur</option>
+							<option>Fri</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>additional info text</th>
+					<td>
+						<input name = "additionalinfotext" type = "text">
+					</td>
+				</tr>
+				<tr>
+					<th>additional info url</th>
+					<td>
+						<input name = "additionalinfourl" type = "url">
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input onclick = "return formvalidator();" type = "submit" value = "Submit">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

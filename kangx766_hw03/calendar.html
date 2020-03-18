@@ -1,0 +1,181 @@
+<!--
+Taewoo Kang
+5328817
+kangx766   AIzaSyCu8RQ807HZUJis4uRrFDtjWG-dsHSmpT4
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta charset = "utf-8">
+	<title>Assignment 1</title>
+	<link type = "text/css" rel = "stylesheet" href = "style.css"/>
+	<style>
+		th{
+			color: blue;
+			border-color: black;
+			font-family: "Times New Roman";
+		}
+	</style>
+	<script src= "project.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu8RQ807HZUJis4uRrFDtjWG-dsHSmpT4&libraries=places"></script>
+
+</head>
+<body onload = initMap()>
+	<nav>
+		<a href = "calendar.html">My Calendar</a> |
+		<a href = "form.html">Form Input</a> |
+		<a href = "myWidgets.html">My Widgets</a>
+	</nav>
+		<div id="google_translate_element"></div>
+	<script>
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<table>
+		<tbody>
+			<tr>
+				<th>Mon</th>
+				<td>
+					<p class="event_name">BIOL 2003</p>
+					<p>9:05AM - 11:00AM</p>
+					<p class="event_address" onmouseout="remove_preview ('bruininks2');" onmouseover="display_preview('bruininks2');" > 222 Pleasant St SE, Minneapolis, MN 55455
+						<img id="bruininks2" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p class="event_name">CSCI 4131</p>
+					<p>2:30PM - 3:45PM</p>
+					<p  class="event_address" onmouseout="remove_preview ('Anderson0');" onmouseover="display_preview('Anderson0');" > 257 19th Ave S, Minneapolis, MN 55455
+						<img id="Anderson0" style="display: none; margin: auto;" src="./anderson_hall_050722_7991.jpg" alt="Anderson" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					-
+				</td>
+			</tr>
+			<tr>
+				<th>Tue</th>
+				<td>
+					<p class="event_name">BIOL 3020</p>
+					<p>10:15AM - 11:30AM</p>
+					<p class="event_address" onmouseout="remove_preview ('biology0');" onmouseover="display_preview('biology0');" > 1475 Gortner Ave, Falcon Heights, MN 55108
+						<img id="biology0" style="display: none; margin: auto;" src="./biol_sci.jpg" alt="biology" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p class="event_name">EE 4951W</p>
+					<p>2:30PM - 3:45PM</p>
+					<p class="event_address" onmouseout="remove_preview ('akerman0');" onmouseover="display_preview('akerman0');" > 110 Union St SE, Minneapolis, MN 55455
+						<img id="akerman0" style="display: none; margin: auto;" src="./akerman_150817_8599.jpg" alt="akerman" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p class="event_name">BIOC 3022</p>
+					<p>4:00PM - 5:15PM</p>
+					<p class="event_address" onmouseout="remove_preview ('bruininks0');" onmouseover="display_preview('bruininks0');" > 222 Pleasant St SE, Minneapolis, MN 55455
+						<img id="bruininks0" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th>Wed</th>
+				<td>
+					<p class="event_name">BIOL 2003</p>
+					<p>9:05AM - 11:00AM</p>
+					<p class="event_address" onmouseout="remove_preview ('bruininks3');" onmouseover="display_preview('bruininks3');" > 222 Pleasant St SE, Minneapolis, MN 55455
+						<img id="bruininks3" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p class="event_name">CSCI 4131</p>
+					<p>2:30PM - 3:45PM</p>
+					<p class="event_address" onmouseout="remove_preview ('Anderson1');" onmouseover="display_preview('Anderson1');" > 257 19th Ave S, Minneapolis, MN 55455
+						<img id="Anderson1" style="display: none; margin: auto;" src="./anderson_hall_050722_7991.jpg" alt="Anderson" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					-
+				</td>
+			</tr>
+			<tr>
+				<th>Thur</th>
+				<td>
+					<p class="event_name">BIOL  3020</p>
+					<p>10:15AM - 11:30AM</p>
+					<p class="event_address" onmouseout="remove_preview ('biology1');" onmouseover="display_preview('biology1');" > 1475 Gortner Ave, Falcon Heights, MN 55108
+						<img id="biology1" style="display: none; margin: auto;" src="./biol_sci.jpg" alt="biology" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p class="event_name">EE 4951W</p>
+					<p>2:30PM - 3:45PM</p>
+					<p class="event_address" onmouseout="remove_preview ('akerman1');" onmouseover="display_preview('akerman1');" > 110 Union St SE, Minneapolis, MN 55455
+						<img id="akerman1" style="display: none; margin: auto;" src="./akerman_150817_8599.jpg" alt="akerman" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p class="event_name">BIOC 3022</p>
+					<p>4:00PM - 5:15PM</p>
+					<p class="event_address" onmouseout="remove_preview ('bruininks1');" onmouseover="display_preview('bruininks1');" > 222 Pleasant St SE, Minneapolis, MN 55455
+						<img id="bruininks1" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th>Fri</th>
+				<td>
+					-
+				</td>
+				<td>
+					-
+				</td>
+				<td>
+					-
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table style="width: 100%; max-height: 50%;">
+		<tbody>
+			<tr>
+				<td style="max-width: 10%;">
+					<div id="route"></div>
+				</td>
+				<td style="width: 80%;">
+					<div id="map"></div>
+				</td>
+				<td style="width: 10%;">
+					<form>
+						<p>Find 
+							<select id="PlaceType" onChange="checkother()">
+								<option>Restaurant</option>
+								<option>Hospital</option>
+								<option>Parking</option>
+								<option>Supermarket</option>
+								<option>Other</option>
+							</select>
+						</p>
+						<p><input id="OtherType" type="text" required disabled></p>
+						<p>in 
+							<input id="Radius" type="text" value="500"> meters
+						</p>
+						<p><button type="button" onclick = "findLocation()">Search</button></p>
+						<hr>
+						<p>Direction to <br/>
+							<input id="Dest" type="text" value="Coffman Memorial Union"> by
+						</p>
+						<p><input name="routetype" type="radio" value="WALKING" checked> WALK</p>
+						<p><input name="routetype" type="radio" value="DRIVING"> DRIVE</p>
+						<p><input name="routetype" type="radio" value="TRANSIT"> TRANSIT</p>
+						<p><button type="button" onclick = "route()">Go</button></p>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
