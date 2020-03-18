@@ -1,0 +1,158 @@
+<!--
+Taewoo Kang
+5328817
+kangx766
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 1</title>
+	<link type = "text/css" rel = "stylesheet" href = "style.css"/>
+	<script>
+		var moves = 0;
+		var previousplayer = "";
+		var winner = [['one', 'two', 'three'],['four', 'five', 'six'],['seven', 'eight', 'nine'], ['one', 'four', 'seven'],['three', 'six', 'nine'], ['three', 'five', 'seven']
+			['two', 'five', 'eight'], ['one', 'five', 'nine']];
+		
+		function win() {
+			for(var x = 0; x < 8; x++){
+				var firstcell = document.getElementById(winner[x][0]).style.backgroundColor;
+				var secondcell = document.getElementById(winner[x][1]).style.backgroundColor;
+				var thirdcell = document.getElementById(winner[x][2]).style.backgroundColor;
+				if(firstcell === 'red' && secondcell === 'red' && thirdcell === 'red'){
+					alert("Red Player beat Blue Player!");
+					resetgame();
+				}
+				else if(firstcell === 'blue' && secondcell === 'blue' && thirdcell === 'blue'){
+					alert("Blue Player beat Red Player!");
+					resetgame();
+				}
+			}
+			if(moves === 9){
+				alert("Draw");
+				resetgame();
+			}
+		}
+		function tictactoegame() {
+			var playercell = document.getElementById("cellname").value.toLowerCase();
+			var playercolor = document.getElementById("cellcolor").value.toLowerCase();
+			if(playercell.search(/^[a-zA-Z]+$/) !==0){
+				alert("Cell Name must be alphabetic");
+				return false;
+			}
+			if(playercolor === previousplayer){
+				alert("pick different player");
+				return false;
+			}
+			if(playercell==="one" || playercell==="two" || playercell==="three" || playercell==="four" || playercell==="five" || playercell==="six" || playercell==="seven" 
+			|| playercell==="eight" || playercell==="nine"){
+				if(document.getElementById(playercell).style.backgroundColor === 'rgb(168, 255, 168)'){
+					document.getElementById(playercell).style.backgroundColor = playercolor;
+				}
+				else{
+					alert("This cell name has already been chosen");
+					return false;
+				}
+			}
+			else{
+				alert("write cell name only");
+				return false;
+			}
+			previousplayer = playercolor; 
+			moves++;
+			setTimeout(win, 5);
+			return true;
+		}
+		function resetgame() {
+			moves = 0;
+			previousplayer = "";
+			document.getElementById("cellname").value = "";
+			document.getElementById("one").style.backgroundColor = "#a8ffa8";
+			document.getElementById("two").style.backgroundColor = "#a8ffa8";
+			document.getElementById("three").style.backgroundColor = "#a8ffa8";
+			document.getElementById("four").style.backgroundColor = "#a8ffa8";
+			document.getElementById("five").style.backgroundColor = "#a8ffa8";
+			document.getElementById("six").style.backgroundColor = "#a8ffa8";
+			document.getElementById("seven").style.backgroundColor = "#a8ffa8";
+			document.getElementById("eight").style.backgroundColor = "#a8ffa8";
+			document.getElementById("nine").style.backgroundColor = "#a8ffa8";
+		}
+	</script>
+</head>
+<body>
+	<nav>
+		<a href = "calendar.html">My Calendar</a> |
+		<a href = "form.html">Form Input</a> |
+		<a href = "myWidgets.html">My Widgets</a>
+	</nav>
+	<iframe style="margin-top: 25px;" width="500" height="350" src="https://www.youtube.com/embed/videoseries?list=PLYfY5g8TOjGCrBYxafCsu8CH97EktQlXq" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<a class="twitter-timeline"
+	  href="https://twitter.com/listenfirst"
+	  data-width = "300"
+	  data-height = "350"
+	  data-chrome="nofooter noborders">
+	Tweets by @listenfirst
+	</a>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<div style = "border: 3px solid blue; width: 200px; margin-top: 10px; background-color: #00bcd4;">
+		<h4 style = "line-height: 0px;">TicTacToe</h4>
+		<form>
+			<p>
+				Enter Cell Name: 
+				<input id = "cellname" name = "cellname" type = "text" required>
+			</p>
+			<p>
+				Select Cell Color: 
+				<select id = "cellcolor" name = "cellcolor">
+					<option>Red</option>
+					<option>Blue</option>
+				</select>
+			</p>
+			<button onclick = "tictactoegame();" type = "button">Enter</button>
+			<button onclick = "resetgame();" type = "button">Reset</button>
+		</form>
+		<table class = "tictactoetable">
+			<tbody class = "tictactoetable">
+				<tr class = "tictactoetable">
+					<td id = "one" class = "tictactoetable" style="background-color: #a8ffa8;">
+						one
+					</td class = "tictactoetable">
+					<td id = "two" class = "tictactoetable" style="background-color: #a8ffa8;"> 
+						two
+					</td class = "tictactoetable">
+					<td id = "three" class = "tictactoetable" style="background-color: #a8ffa8;">
+						three
+					</td class = "tictactoetable">
+				</tr class = "tictactoetable">
+				
+				<tr class = "tictactoetable">
+					<td id = "four" class = "tictactoetable" style="background-color: #a8ffa8;">
+						four
+					</td class = "tictactoetable">
+					<td id = "five" class = "tictactoetable" style="background-color: #a8ffa8;"> 
+						five
+					</td class = "tictactoetable">
+					<td id = "six" class = "tictactoetable" style="background-color: #a8ffa8;">
+						six
+					</td class = "tictactoetable">
+				</tr class = "tictactoetable">
+				
+				<tr class = "tictactoetable">
+					<td id = "seven" class = "tictactoetable" style="background-color: #a8ffa8;">
+						seven
+					</td class = "tictactoetable">
+					<td id = "eight" class = "tictactoetable" style="background-color: #a8ffa8;"> 
+						eight
+					</td class = "tictactoetable">
+					<td id = "nine" class = "tictactoetable" style="background-color: #a8ffa8;">
+						nine
+					</td class = "tictactoetable">
+				</tr class = "tictactoetable">
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

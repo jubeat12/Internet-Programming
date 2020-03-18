@@ -1,0 +1,155 @@
+<!--
+Taewoo Kang
+5328817
+kangx766
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 1</title>
+	<link type = "text/css" rel = "stylesheet" href = "style.css"/>
+	<style>
+		th{
+			color: blue;
+			border-color: black;
+			font-family: "Times New Roman";
+		}
+	</style>
+	<script>
+		function chgimg(name, txt) {
+			// Debug output statements - rudimentary stuff
+			 //alert("name: " + name);
+			 //alert("alternate text: " + txt);
+			var theimage = document.getElementById("bigimage");
+			theimage.src = name;
+			theimage.alt = txt;
+			theimage.style.display = "block";
+		}
+		
+		function display_preview (elementID){
+			document.getElementById(elementID).style.display = "block";
+		}
+		
+		function remove_preview (elementID){
+			document.getElementById(elementID).style.display = "none";
+		}
+	</script>
+
+</head>
+<body>
+	<nav>
+		<a href = "calendar.html">My Calendar</a> |
+		<a href = "form.html">Form Input</a> |
+		<a href = "myWidgets.html">My Widgets</a>
+	</nav>
+	<table>
+		<tbody>
+			<tr>
+				<th>Mon</th>
+				<td>
+					<p>BIOL 2003</p>
+					<p>9:05AM - 11:00AM</p>
+					<p onmouseout="remove_preview ('bruininks2');" onmouseover="chgimg('./bruininks_hall_100908_4415.jpg', 'Bruininks'); display_preview('bruininks2');" >Bruninks Hall 330
+						<img id="bruininks2" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p>CSCI 4131</p>
+					<p>2:30PM - 3:45PM</p>
+					<p onmouseout="remove_preview ('Anderson0');" onmouseover="chgimg('./anderson_hall_050722_7991.jpg', 'Anderson'); display_preview('Anderson0');" >Anderson Hall 370
+						<img id="Anderson0" style="display: none; margin: auto;" src="./anderson_hall_050722_7991.jpg" alt="Anderson" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					-
+				</td>
+			</tr>
+			<tr>
+				<th>Tue</th>
+				<td>
+					<p>BIOL  3020</p>
+					<p>10:15AM - 11:30AM</p>
+					<p onmouseout="remove_preview ('biology0');" onmouseover="chgimg('./biol sci.jpg', 'Biology'); display_preview('biology0');" >Biological Sciences Ctr 64
+						<img id="biology0" style="display: none; margin: auto;" src="./biol sci.jpg" alt="biology" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p>EE 4951W</p>
+					<p>2:30PM - 3:45PM</p>
+					<p onmouseout="remove_preview ('akerman0');" onmouseover="chgimg('./akerman_150817_8599.jpg', 'akerman'); display_preview('akerman0');" >Akerman Hall 319
+						<img id="akerman0" style="display: none; margin: auto;" src="./akerman_150817_8599.jpg" alt="akerman" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p>BIOC 3022</p>
+					<p>4:00PM - 5:15PM</p>
+					<p onmouseout="remove_preview ('bruininks0');" onmouseover="chgimg('./bruininks_hall_100908_4415.jpg', 'Bruininks'); display_preview('bruininks0');" >Bruninks Hall 131A
+						<img id="bruininks0" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th>Wed</th>
+				<td>
+					<p>BIOL 2003</p>
+					<p>9:05AM - 11:00AM</p>
+					<p onmouseout="remove_preview ('bruininks3');" onmouseover="chgimg('./bruininks_hall_100908_4415.jpg', 'Bruininks'); display_preview('bruininks3');" >Bruninks Hall 330
+						<img id="bruininks3" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p>CSCI 4131</p>
+					<p>2:30PM - 3:45PM</p>
+					<p onmouseout="remove_preview ('Anderson1');" onmouseover="chgimg('./anderson_hall_050722_7991.jpg', 'Anderson'); display_preview('Anderson1');" >Anderson Hall 370
+						<img id="Anderson1" style="display: none; margin: auto;" src="./anderson_hall_050722_7991.jpg" alt="Anderson" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					-
+				</td>
+			</tr>
+			<tr>
+				<th>Thur</th>
+				<td>
+					<p>BIOL  3020</p>
+					<p>10:15AM - 11:30AM</p>
+					<p onmouseout="remove_preview ('biology1');" onmouseover="chgimg('./biol sci.jpg', 'Biology'); display_preview('biology1');" >Biological Sciences Ctr 64
+						<img id="biology1" style="display: none; margin: auto;" src="./biol sci.jpg" alt="biology" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p>EE 4951W</p>
+					<p>2:30PM - 3:45PM</p>
+					<p onmouseout="remove_preview ('akerman1');" onmouseover="chgimg('./akerman_150817_8599.jpg', 'akerman'); display_preview('akerman1');" >Akerman Hall 319
+						<img id="akerman1" style="display: none; margin: auto;" src="./akerman_150817_8599.jpg" alt="akerman" height="40" width="40">
+					</p>
+				</td>
+				<td>
+					<p>BIOC 3022</p>
+					<p>4:00PM - 5:15PM</p>
+					<p onmouseout="remove_preview ('bruininks1');" onmouseover="chgimg('./bruininks_hall_100908_4415.jpg', 'Bruininks'); display_preview('bruininks1');" >Bruninks Hall 131A
+						<img id="bruininks1" style="display: none; margin: auto;" src="./bruininks_hall_100908_4415.jpg" alt="Bruininks" height="40" width="40">
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th>Fri</th>
+				<td>
+					-
+				</td>
+				<td>
+					-
+				</td>
+				<td>
+					-
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+		<img id = "bigimage" style="display: none;" src="./akerman_150817_8599.jpg" alt="akerman hall" height="auto" width="auto">
+	</div>
+</body>
+</html>
