@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <title>events</title>
+  </head>
+
+  <body>
+    <nav>
+   		<div class="jumbotron" style="background-color: DarkSeaGreen !important">
+        <ul style="background-color: green;">
+          <li style="list-style-type: none; float: left;" > <a style="text-decoration: none; margin-left: 20px; color:white;"href="/"> Home </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/events"> Events Page </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/addEvents"> Add Events </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/logout"> Logout </a> </li>
+        </ul>
+      </div>
+    </nav>
+    <table class="table" id="events" style="">
+     <thead>
+       <tr>
+         <th style="background-color: green; color: white;">Event Name</th>
+         <th style="background-color: green; color: white;">Location</th>
+         <th style="background-color:  green; color: white;">Date</th>
+       </tr>
+     </thead>
+     <tbody style="background-color: #d3d3d3;">
+     </tbody>
+   </table>
+ </div>
+ <script>
+  (function () {
+  	var url = "getListOfEvents";
+  	$.ajax({
+  		url: url, success: function (result) {
+  			result.forEach(function (i) {
+  				$('#events').append(`<tr><td>${i.event_name}</td><td>${i.event_location}</td><td>${i.event_date}</td></tr>`);
+  			});
+  		}
+  	});
+  })();
+ </script>
+</body>
+</html>
