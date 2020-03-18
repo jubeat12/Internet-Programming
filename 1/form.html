@@ -1,0 +1,79 @@
+<!--
+Taewoo Kang
+5328817
+kangx766
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 1</title>
+	<link type = "text/css" rel = "stylesheet" href = "style.css"/>
+	<style>
+		td, th{
+			text-align: left;
+			height: auto;
+			width: 100px;
+		}
+		table{
+			width: 275px;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<a href = "calendar.html">My Calendar</a> |
+		<a href = "form.html">Form Input</a> |
+		<a href = "myWidgets.html">My Widgets</a>
+	</nav>
+	<form method="get" action="https://www-users.cs.umn.edu/~shaw0162/index.php">
+		<table>
+			<tbody>
+				<tr>
+					<th>Event Name</th>
+					<td>
+						<input name = "eventname" type = "text" required>
+					</td>
+				</tr>
+				<tr>
+					<th>Start Time</th>
+					<td>
+						<input name = "starttime" type = "time" required>
+					</td>
+				</tr>
+				<tr>
+					<th>End Time</th>
+					<td>
+						<input name = "endtime" type = "time" required>
+					</td>
+				</tr>
+				<tr>
+					<th>Location</th>
+					<td>
+						<input name = "location" type = "text" required>
+					</td>
+				</tr>
+				<tr>
+					<th>Day of Week</th>
+					<td>
+						<select name = "day">
+							<option>Mon</option>
+							<option>Tue</option>
+							<option>Wed</option>
+							<option>Thur</option>
+							<option>Fri</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type = "submit" value = "Submit">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>
