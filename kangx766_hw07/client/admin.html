@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Admin</title>
+  <script>
+    "use strict";
+
+    (function () {
+    	// the API end point
+    	var url = "getListOfUsers";
+    
+    	$.ajax({
+    		url: url, 
+        success: function (result) {
+    			result.forEach(function (usr) {
+    				$('#table').append(
+              `<tr id="row-${usr.acc_login}">
+                <td>${usr.acc_id}</td>
+                <td>${usr.acc_name}</td>
+                <td>${usr.acc_login}</td>
+                <td></td>
+                <td>
+                  <a href = "#" onclick="editUser('${usr.acc_login}')"><span class="glyphicon glyphicon-pencil"></span></a> 
+                  <a href="#" onclick="deleteUser('${usr.acc_login}')"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+              </tr>`);
+    			});
+    		}
+    	});
+     console.log("In User List");
+    
+    })();
+    
+    function newUser() {
+      resetMsg();
+      if (!document.getElementById('new-row')) {
+        $('#table').append(
+          `<tr id="new-row">
+            <td></td>
+            <td><input id="new-name" type="text"></td>
+            <td><input id="new-login" type="text"></td>
+            <td><input id="new-password" type="text"></td>
+            <td>
+              <a href="#" onclick="addUser()"><span class="glyphicon glyphicon-floppy-save"></span></a> 
+              <a href="#" onclick="deleteRow()"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>`);
+      }
+    }
+    
+    function deleteRow() {
+      resetMsg();
+      var r = document.getElementById('new-row');
+      if (r) {
+        r.remove();
+      }
+    }
+    
+    function addUser() {
+      resetMsg();
+      $.ajax({
+        type: 'POST',
+        url: '/validateNewUser',
+        data: { name: $('#new-name').val(), login: $('#new-login').val(), password: $('#new-password').val() },
+        success: function (data, textStatus, jqXHR) {
+          console.log("Success. Reloading...");
+          window.location.reload();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+    	  $("#msg").html("<span style='color: red;'> This login is used by another user </span>");
+        }
+      });
+    }
+    
+    function updateUser(oldLogin) {
+      resetMsg();
+      $.ajax({
+        type: 'POST',
+        url: '/updateUser',
+        data: { name: $('#new-name').val(), login: $('#new-login').val(), oldLogin: oldLogin, password: $('#new-password').val() },
+        success: function (data, textStatus, jqXHR) {
+          console.log("Success. Reloading...");
+          window.location.reload();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          $('#msg').text('This login is used by another user');
+        }
+      });
+    }
+    
+    function deleteUser(login) {
+      resetMsg();
+      $.ajax({
+        type: 'DELETE',
+        url: '/deleteUser',
+        data: { login: login },
+        success: function (data, textStatus, jqXHR) {
+          window.location.reload();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          $('#msg').text('Can not delete the user that is logged in');
+        }
+      });
+    }
+    
+    function editUser(login) {
+      resetMsg();
+      var r = $(`#row-${login}`);
+      var oldHTML = r.html().quote;
+      console.log(oldHTML);
+      var id = $(`#row-${login} td`)[0].innerHTML;
+      var oldName = $(`#row-${login} td`)[1].innerHTML;
+      var oldLogin = $(`#row-${login} td`)[2].innerHTML;
+      r.html(
+        `<td>${id}</td>
+        <td><input id="new-name" type="text" value="${oldName}"></td>
+        <td><input id="new-login" type="text" value="${oldLogin}"></td>
+        <td><input id="new-password" type="text"></td>
+        <td>
+          <a href="#" onclick="updateUser('${oldLogin}')"><span class="glyphicon glyphicon-floppy-save"></span></a> 
+          <a href="#" onclick="window.location.reload()"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>`);
+    }
+    
+    function resetMsg() {
+      $('#msg').text('');
+    }
+  </script>
+</head>
+
+<body>
+    <nav>
+   		<div class="jumbotron" style="background-color: DarkSeaGreen !important">
+        <ul style="background-color: green;">
+          <li style="list-style-type: none; float: left;" > <a style="text-decoration: none; margin-left: 20px; color:white;"href="/"> Home </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/events"> Events Page </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/addEvents"> Add Events </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/admin"> Admin </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/logout"> Logout </a> </li>
+        </ul>
+        <p id="user" style="text-decoration: none; margin-left: 20px; color:white; text-align: right !important; font-size: 15px;"</p>
+      </div>
+      <script>
+        "use strict";
+        (function () {
+          // the API end point
+          var url = "getCurrentUser";
+          $.ajax({
+            url: url,
+            success: function (res) { $('#user').text(`Welcome ${res}`); }
+          });
+        })();
+      </script>
+    </nav>
+    <p id="msg" style="color: red; text-align: center;"></p>
+    <div class="container" style="width: 100%;">
+      <a href="#" id="btnAdd" class="btn btn-primary a-btn-slide-text" onclick="newUser()">
+          <span class="glyphicon glyphicon-plus"></span>
+          <span><strong>Add User</strong></span>
+      </a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="background-color: green; color: white;">Id</th>
+            <th scope="col" style="background-color: green; color: white;">Name</th>
+            <th scope="col" style="background-color: green; color: white;">Login</th>
+            <th scope="col" style="background-color: green; color: white;">New Password</th>
+            <th scope="col" style="background-color: green; color: white;"></th>
+          </tr>
+        </thead>
+        <tbody id="table" style="background-color: #d3d3d3;">
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>

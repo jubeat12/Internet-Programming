@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <title>add Event</title>
+  </head>
+
+  <body>
+    <nav>
+   		<div class="jumbotron" style="background-color: DarkSeaGreen !important">
+        <ul style="background-color: green;">
+          <li style="list-style-type: none; float: left;" > <a style="text-decoration: none; margin-left: 20px; color:white;"href="/"> Home </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/events"> Events Page </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/addEvents"> Add Events </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/admin"> Admin </a> </li>
+          <li style="list-style-type: none; float: left;"> <a style="text-decoration: none; margin-left: 20px; color:white;"href="/logout"> Logout </a> </li>
+        </ul>
+        <p id="user" style="text-decoration: none; margin-left: 20px; color:white; text-align: right !important; font-size: 15px;"</p>
+      </div>
+      <script>
+        "use strict";
+        (function () {
+          // the API end point
+          var url = "getCurrentUser";
+          $.ajax({
+            url: url,
+            success: function (res) { $('#user').text(`Welcome ${res}`); }
+          });
+        })();
+      </script>
+    </nav>
+    <form name="addEvent" method="post" action="/postEvent">
+        <table style="position: absolute; left:30%;">
+          <tbody style="border: solid black 1px;">
+            <tr>
+              <td style="border: solid black 1px; padding: 8px 12px 4px 12px;">Event Name</td>
+              <td> <input type="text" name="eventname"> </td>
+            </tr>
+
+            <tr>
+              <td style="border: solid black 1px; padding: 8px 12px 4px 12px;">Location</td>
+              <td> <input type="text" name="location"> </td>
+            </tr>
+
+            <tr>
+              <td style="border: solid black 1px; padding: 8px 12px 4px 12px;">Date</td>
+              <td> <input style="width:100%;" type="date" name="date"> </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td style="border: solid black 1px; padding: 8px 12px 4px 12px;"> <input style="color: white; width:100%; background-color: lightblue;"type="submit" value="Submit"> </td>
+            </tr>
+          </tbody>
+        </table>
+    </form>
+  </body>
+</html>
